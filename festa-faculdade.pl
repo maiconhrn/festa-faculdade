@@ -99,8 +99,8 @@ test(t1, fail) :-
 :- end_tests(mais_velho).
 
 mais_velho(Estudantes, E1, E2) :-
-    E1 = estudante(_, IdateE1, _, _),
-    E2 = estudante(_, IdateE2, _, _),
-    IdateE1 #> IdateE2,
+    E1 = estudante(_, IdadeE1, _, _),
+    E2 = estudante(_, IdadeE2, _, _),
+    IdadeE1 #> IdadeE2,
     member(E1, Estudantes),
     member(E2, Estudantes).
