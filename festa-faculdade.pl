@@ -72,7 +72,7 @@ festa_faculdade(E1, E2, E3, E4) :-
     (member(estudante(nayara, 20, _, _), Estudantes),
         \+(member(estudante(nayara, _, _, 2), Estudantes)))).
 
-%% mais_velho(?Estudantes, ?E1, ?E2)
+%% mais_velho(?Estudantes, ?E1, ?E2) is nondet
 %
 %  Verdadeiro se E1 e E2 estão na lista Estudantes e tem E1 idade maior que a idade de E2.
 
