@@ -41,20 +41,20 @@ festa_faculdade(E1, E2, E3, E4) :-
     member(estudante(_, _, _, 3), Estudantes),
     member(estudante(_, _, _, 4), Estudantes),
     % 1. Cecília não tem 21 anos
-    not(member(estudante(cecilia, 21, _, _), Estudantes)),
+    \+(member(estudante(cecilia, 21, _, _), Estudantes)),
     % 2. Nem a Helena nem a estudante de 20 anos estão no terceiro ano da faculdade.
-    not(member(estudante(helena, _, _, 3), Estudantes)),
-    not(member(estudante(_, 20, _, 3), Estudantes)),
+    \+(member(estudante(helena, _, _, 3), Estudantes)),
+    \+(member(estudante(_, 20, _, 3), Estudantes)),
     % 3. Entre as estudantes de 20 anos e 21 anos, uma cursa enfermagem e a outra está no primeiro ano, não
     % necessariamente nessa ordem.
     ((member(estudante(_, 20, enfermagem, _), Estudantes),
-        not(member(estudante(_, 20, _, 1), Estudantes))) ;
+        \+(member(estudante(_, 20, _, 1), Estudantes))) ;
     (member(estudante(_, 20, _, 1), Estudantes),
-        not(member(estudante(_, 20, enfermagem, _), Estudantes)))),
+        \+(member(estudante(_, 20, enfermagem, _), Estudantes)))),
     ((member(estudante(_, 21, enfermagem, _), Estudantes),
-        not(member(estudante(_, 21, _, 1), Estudantes))) ;
+        \+(member(estudante(_, 21, _, 1), Estudantes))) ;
     (member(estudante(_, 21, _, 1), Estudantes),
-        not(member(estudante(_, 21, enfermagem, _), Estudantes)))),
+        \+(member(estudante(_, 21, enfermagem, _), Estudantes)))),
     % 4. A estudante do primeiro ano é mais velha do que a Angélica.
     mais_velho(Estudantes, estudante(_, _, _, 1), estudante(angelica, _, _, _)),
     % 5. A estudante de direito é mais velha do que a estudante do primeiro ano.
@@ -64,13 +64,13 @@ festa_faculdade(E1, E2, E3, E4) :-
     % 7. Entre a estudante do segundo ano e a estudante de 20 anos, uma cursa direito e a outra é a Nayara, não
     % necessariamente nessa ordem.
     ((member(estudante(_, _, direito, 2), Estudantes),
-        not(member(estudante(_, 20, direito, _), Estudantes))) ;
+        \+(member(estudante(_, 20, direito, _), Estudantes))) ;
     (member(estudante(_, 20, direito, _), Estudantes),
-        not(member(estudante(_, _, direito, 2), Estudantes)))),
+        \+(member(estudante(_, _, direito, 2), Estudantes)))),
     ((member(estudante(nayara, _, _, 2), Estudantes),
-        not(member(estudante(nayara, 20, _, _), Estudantes))) ;
+        \+(member(estudante(nayara, 20, _, _), Estudantes))) ;
     (member(estudante(nayara, 20, _, _), Estudantes),
-        not(member(estudante(nayara, _, _, 2), Estudantes)))).
+        \+(member(estudante(nayara, _, _, 2), Estudantes)))).
 
 %% mais_velho(?Estudantes, ?E1, ?E2)
 %
