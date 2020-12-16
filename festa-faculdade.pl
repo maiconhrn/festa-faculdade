@@ -84,17 +84,34 @@ test(t1, nondet) :-
     C = estudante(_, 21, _, _),
     mais_velho([A, B, C], B, A).
 
-test(t1, fail) :-
+test(t2, fail) :-
     A = estudante(_, 19, _, _),
     B = estudante(_, 20, _, _),
     C = estudante(_, 21, _, _),
     mais_velho([A, B, C], A, B).
 
-test(t1, fail) :-
+test(t3, fail) :-
     A = estudante(_, 19, _, _),
     B = estudante(_, 20, _, _),
     C = estudante(_, 21, _, _),
     mais_velho([A, C], B, A).
+
+test(t4, nondet) :-
+    A = estudante(_, 19, _, _),
+    C = estudante(_, 21, _, _),
+    mais_velho([A, B, C], B, A).
+
+test(t5, nondet) :-
+    B = estudante(_, 20, _, _),
+    C = estudante(_, 21, _, _),
+    mais_velho([A, B, C], B, A).
+
+test(t6, all(IdadeD == [20, 21])) :-
+    A = estudante(_, 19, _, _),
+    B = estudante(_, 20, _, _),
+    C = estudante(_, 21, _, _),
+    D = estudante(_, IdadeD, _, _),
+    mais_velho([A, B, C], D, A).
 
 :- end_tests(mais_velho).
 
